@@ -10,7 +10,6 @@ public class crudops {
 		Scanner sc=new Scanner(System.in);
 		while(true)
 		{
-			System.out.println();
 		System.out.println("Select the operation you want to perform");
 		System.out.println("1.Insert\n 2.Read\n 3.Update\n 4.Delete \n 5.Exit");
 		int ch=sc.nextInt();
@@ -26,7 +25,7 @@ public class crudops {
 		break;
 		case 5: System.out.print("exited");
 		System.exit(0);
-		default: System.out.println("Invalid enter between 1 to 4");
+		default: System.out.println("Invalid number enter between 1 to 4");
 		}
 	}
 	}
@@ -68,17 +67,13 @@ public class crudops {
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javadevlop","root","Jishnu@123");
 		Statement st=con.createStatement();
 		System.out.println("Before Update");
-		System.out.println();
 		ResultSet rs=st.executeQuery("select * from cust12");
 		while(rs.next())
 		{
 		System.out.println(rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5)+"\t"+rs.getString(6)+"\t"+rs.getString(7));
 		}
-		System.out.println();
 		st.executeUpdate("update cust12 set fname='MSingh' where c_id=3;");
-		System.out.println();
 		System.out.println("After Update");
-		System.out.println();
 		ResultSet rs1=st.executeQuery("select * from cust12");
 		while(rs1.next())
 		{
@@ -92,16 +87,13 @@ public class crudops {
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javadevlop","root","Jishnu@123");
 		Statement st=con.createStatement();
 		System.out.println("Before Delete");
-		System.out.println();
 		ResultSet rs=st.executeQuery("select * from cust12");
 		while(rs.next())
 		{
 		System.out.println(rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5)+"\t"+rs.getString(6)+"\t"+rs.getString(7));
 		}
 		st.executeUpdate("delete from cust12 where c_id=6");
-		System.out.println();
 		System.out.println("After Delete");
-		System.out.println();
 		ResultSet rs1=st.executeQuery("select * from cust12");
 		while(rs1.next())
 		{
